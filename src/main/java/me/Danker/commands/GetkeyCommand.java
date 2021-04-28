@@ -39,11 +39,11 @@ public class GetkeyCommand extends CommandBase implements ICommand {
 	    EntityPlayer player = (EntityPlayer)arg0;
 	    Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 	    StringSelection stringSelection = new StringSelection(ConfigHandler.getString("api", "APIKey"));
-	    
+
 	    if (ConfigHandler.getString("api", "APIKey").equals("")) {
-	      player.addChatMessage(new ChatComponentText(DankersSkyblockMod.ERROR_COLOUR + "API key not set. Set your API key using /setkey."));
+	      player.addChatMessage(new ChatComponentText(DankersSkyblockMod.ERROR_COLOUR_SYMBOL + "✘ " + DankersSkyblockMod.ERROR_COLOUR + "API key not set. Set your API key using /setkey."));
 	    }
-	    
+
 	    clipboard.setContents(stringSelection, null);
 		player.addChatMessage(new ChatComponentText(DankersSkyblockMod.MAIN_COLOUR + "Your set API key is " + DankersSkyblockMod.SECONDARY_COLOUR + ConfigHandler.getString("api", "APIKey") + "\n" +
 													DankersSkyblockMod.MAIN_COLOUR + " Your set API key has been copied to the clipboard."));

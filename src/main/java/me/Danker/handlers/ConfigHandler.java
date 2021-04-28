@@ -19,7 +19,7 @@ import java.io.File;
 public class ConfigHandler {
 	public static Configuration config;
 	private final static String file = "config/Danker's Skyblock Mod.cfg";
-	
+
 	public static void init() {
 		config = new Configuration(new File(file));
 		try {
@@ -30,7 +30,7 @@ public class ConfigHandler {
 			config.save();
 		}
 	}
-	
+
 	public static int getInt(String category, String key) {
 		config = new Configuration(new File(file));
 		try {
@@ -45,7 +45,7 @@ public class ConfigHandler {
 		}
 		return 0;
 	}
-	
+
 	public static double getDouble(String category, String key) {
 		config = new Configuration(new File(file));
 		try {
@@ -60,7 +60,7 @@ public class ConfigHandler {
 		}
 		return 0D;
 	}
-	
+
 	public static String getString(String category, String key) {
 		config = new Configuration(new File(file));
 		try {
@@ -75,7 +75,7 @@ public class ConfigHandler {
 		}
 		return "";
 	}
-	
+
 	public static boolean getBoolean(String category, String key) {
 		config = new Configuration(new File(file));
 		try {
@@ -103,7 +103,7 @@ public class ConfigHandler {
 			config.save();
 		}
 	}
-	
+
 	public static void writeDoubleConfig(String category, String key, double value) {
 		config = new Configuration(new File(file));
 		try {
@@ -116,7 +116,7 @@ public class ConfigHandler {
 			config.save();
 		}
 	}
-	
+
 	public static void writeStringConfig(String category, String key, String value) {
 		config = new Configuration(new File(file));
 		try {
@@ -129,7 +129,7 @@ public class ConfigHandler {
 			config.save();
 		}
 	}
-	
+
 	public static void writeBooleanConfig(String category, String key, boolean value) {
 		config = new Configuration(new File(file));
 		try {
@@ -142,7 +142,7 @@ public class ConfigHandler {
 			config.save();
 		}
 	}
-	
+
 	public static boolean hasKey(String category, String key) {
 		config = new Configuration(new File(file));
 		try {
@@ -156,7 +156,7 @@ public class ConfigHandler {
 		}
 		return false;
 	}
-	
+
 	public static void deleteCategory(String category) {
 		config = new Configuration(new File(file));
 		try {
@@ -206,7 +206,7 @@ public class ConfigHandler {
 			return getBoolean(category, key);
 		}
 	}
-	
+
 	public static void reloadConfig() {
 		// Toggles
 		ToggleCommand.gpartyToggled = initBoolean("toggles", "GParty", false);
@@ -276,7 +276,7 @@ public class ConfigHandler {
 
 		// API
 		if (!hasKey("api", "APIKey")) writeStringConfig("api", "APIKey", "");
-		
+
 		// Wolf
 		LootTracker.wolfSvens = initInt("wolf", "svens", 0);
 		LootTracker.wolfTeeth = initInt("wolf", "teeth", 0);
@@ -319,7 +319,7 @@ public class ConfigHandler {
 		LootTracker.zombieWardenHearts = initInt("zombie", "heart", 0);
 		LootTracker.zombieTime = initDouble("zombie", "timeRNG", -1);
 		LootTracker.zombieBosses = initInt("zombie", "bossRNG", -1);
-		
+
 		// Fishing
 		LootTracker.seaCreatures = initInt("fishing", "seaCreature", 0);
 		LootTracker.goodCatches = initInt("fishing", "goodCatch", 0);
@@ -359,7 +359,7 @@ public class ConfigHandler {
 		LootTracker.werewolfs = initInt("fishing", "werewolf", 0);
 		LootTracker.phantomFishers = initInt("fishing", "phantomFisher", 0);
 		LootTracker.grimReapers = initInt("fishing", "grimReaper", 0);
-		
+
 		// Mythological
 		LootTracker.mythCoins = initDouble("mythological", "coins", 0);
 		LootTracker.griffinFeathers = initInt("mythological", "griffinFeather", 0);
@@ -371,7 +371,7 @@ public class ConfigHandler {
 		LootTracker.gaiaConstructs = initInt("mythological", "gaiaConstruct", 0);
 		LootTracker.minosChampions = initInt("mythological", "minosChampion", 0);
 		LootTracker.minosInquisitors = initInt("mythological", "minosInquisitor", 0);
-		
+
 		// Dungeons
 		LootTracker.recombobulators =  initInt("catacombs", "recombobulator", 0);
 		LootTracker.fumingPotatoBooks = initInt("catacombs", "fumingBooks", 0);
@@ -491,15 +491,16 @@ public class ConfigHandler {
 		ScaleCommand.golemTimerScale = initDouble("scales", "golemTimerScale", 1);
 
 		// Colours
-		DankersSkyblockMod.MAIN_COLOUR = initString("colors", "main", EnumChatFormatting.GREEN.toString());
-		DankersSkyblockMod.SECONDARY_COLOUR = initString("colors", "secondary", EnumChatFormatting.DARK_GREEN.toString());
-		DankersSkyblockMod.DELIMITER_COLOUR = initString("colors", "delimiter", EnumChatFormatting.AQUA.toString() + EnumChatFormatting.STRIKETHROUGH.toString());
+		DankersSkyblockMod.MAIN_COLOUR = initString("colors", "main", EnumChatFormatting.AQUA.toString());
+		DankersSkyblockMod.SECONDARY_COLOUR = initString("colors", "secondary", EnumChatFormatting.DARK_AQUA.toString());
+		DankersSkyblockMod.DELIMITER_COLOUR = initString("colors", "delimiter", EnumChatFormatting.RED.toString() + EnumChatFormatting.STRIKETHROUGH.toString());
 		DankersSkyblockMod.ERROR_COLOUR = initString("colors", "error", EnumChatFormatting.RED.toString());
-		DankersSkyblockMod.TYPE_COLOUR = initString("colors", "type", EnumChatFormatting.GREEN.toString());
+		DankersSkyblockMod.ERROR_COLOUR_SYMBOL = initString("colors", "errorSymbol", EnumChatFormatting.DARK_RED.toString());
+		DankersSkyblockMod.TYPE_COLOUR = initString("colors", "type", EnumChatFormatting.DARK_AQUA.toString());
 		DankersSkyblockMod.VALUE_COLOUR = initString("colors", "value", EnumChatFormatting.DARK_GREEN.toString());
-		DankersSkyblockMod.SKILL_AVERAGE_COLOUR = initString("colors", "skillAverage", EnumChatFormatting.GOLD.toString());
+		DankersSkyblockMod.SKILL_AVERAGE_COLOUR = initString("colors", "skillAverage", EnumChatFormatting.WHITE.toString());
 		DankersSkyblockMod.ANSWER_COLOUR = initString("colors", "answer", EnumChatFormatting.DARK_GREEN.toString());
-		Skill50Display.SKILL_50_COLOUR = initString("colors", "skill50Display", EnumChatFormatting.AQUA.toString());
+		Skill50Display.SKILL_50_COLOUR = initString("colors", "skill50Display", EnumChatFormatting.GOLD.toString());
 		NoF3Coords.COORDS_COLOUR = initString("colors", "coordsDisplay", EnumChatFormatting.WHITE.toString());
 		CakeTimer.CAKE_COLOUR = initString("colors", "cakeDisplay", EnumChatFormatting.GOLD.toString());
 		SkillTracker.SKILL_TRACKER_COLOUR = initString("colors", "skillTracker", EnumChatFormatting.AQUA.toString());
@@ -535,5 +536,5 @@ public class ConfigHandler {
 		// Commands
 		if (!hasKey("commands", "reparty")) writeBooleanConfig("commands", "reparty", false);
 	}
-	
+
 }

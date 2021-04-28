@@ -78,6 +78,7 @@ public class DankersSkyblockMod {
     public static String MAIN_COLOUR;
     public static String SECONDARY_COLOUR;
     public static String ERROR_COLOUR;
+    public static String ERROR_COLOUR_SYMBOL;
     public static String DELIMITER_COLOUR;
     public static String TYPE_COLOUR;
     public static String VALUE_COLOUR;

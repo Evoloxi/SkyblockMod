@@ -61,7 +61,7 @@ public class BankCommand extends CommandBase {
 			// Check key
 			String key = ConfigHandler.getString("api", "APIKey");
 			if (key.equals("")) {
-				player.addChatMessage(new ChatComponentText(EnumChatFormatting.RED + "API key not set. Use /setkey."));
+				player.addChatMessage(new ChatComponentText(EnumChatFormatting.DARK_RED + "✘" + EnumChatFormatting.RED + "API key not set. Use /setkey."));
 			}
 			
 			// Get UUID for Hypixel API requests
@@ -109,7 +109,7 @@ public class BankCommand extends CommandBase {
 			} else {
 				player.addChatMessage(new ChatComponentText(DankersSkyblockMod.DELIMITER_COLOUR + "" + EnumChatFormatting.BOLD + "-------------------\n" +
 															EnumChatFormatting.AQUA + " " + username + "'s Coins:\n" +
-															DankersSkyblockMod.TYPE_COLOUR + " Bank: " + EnumChatFormatting.RED + "Bank API disabled.\n" +
+															DankersSkyblockMod.TYPE_COLOUR + " Bank: " + EnumChatFormatting.RED + "✘" + EnumChatFormatting.RED + "Bank API disabled.\n" +
 															DankersSkyblockMod.TYPE_COLOUR + " Purse: " + EnumChatFormatting.GOLD + nf.format(purseCoins) + "\n" +
 															DankersSkyblockMod.DELIMITER_COLOUR + " " + EnumChatFormatting.BOLD + "-------------------"));
 			}
