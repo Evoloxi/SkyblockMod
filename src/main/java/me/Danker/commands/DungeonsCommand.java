@@ -63,10 +63,10 @@ public class DungeonsCommand extends CommandBase {
 			if (arg1.length == 0) {
 				username = player.getName();
 				uuid = player.getUniqueID().toString().replaceAll("[\\-]", "");
-				player.addChatMessage(new ChatComponentText(DankersSkyblockMod.MAIN_COLOUR + "Checking dungeon stats of " + DankersSkyblockMod.SECONDARY_COLOUR + username));
+				player.addChatMessage(new ChatComponentText(EnumChatFormatting.AQUA + "Checking dungeon data of " + EnumChatFormatting.DARK_AQUA + username));
 			} else {
 				username = arg1[0];
-				player.addChatMessage(new ChatComponentText(DankersSkyblockMod.MAIN_COLOUR + "Checking dungeon stats of " + DankersSkyblockMod.SECONDARY_COLOUR + username));
+				player.addChatMessage(new ChatComponentText(EnumChatFormatting.AQUA + "Checking dungeon data of " + EnumChatFormatting.DARK_AQUA + username));
 				uuid = APIHandler.getUUID(username);
 			}
 			
@@ -111,30 +111,32 @@ public class DungeonsCommand extends CommandBase {
 			int highestFloor = catacombsObject.get("highest_tier_completed").getAsInt();
 			JsonObject completionObj = catacombsObject.get("tier_completions").getAsJsonObject();
 
-			String delimiter = DankersSkyblockMod.DELIMITER_COLOUR + "" + EnumChatFormatting.BOLD + "-------------------";
+			String delimiter = EnumChatFormatting.RED + "" + EnumChatFormatting.BOLD + "-------------------";
 
 			ChatComponentText classLevels = new ChatComponentText(
-					EnumChatFormatting.GOLD + " Selected Class: " + selectedClass + "\n\n" +
-						 EnumChatFormatting.RED + " Catacombs Level: " + catacombs + "\n" +
-						 EnumChatFormatting.YELLOW + " Healer Level: " + healer + "\n" +
-						 EnumChatFormatting.LIGHT_PURPLE + " Mage Level: " + mage + "\n" +
-						 EnumChatFormatting.RED + " Berserk Level: " + berserk + "\n" +
-						 EnumChatFormatting.GREEN + " Archer Level: " + archer + "\n" +
-						 EnumChatFormatting.BLUE + " Tank Level: " + tank + "\n\n" +
-						 EnumChatFormatting.WHITE + " Secrets Found: " + secrets + "\n\n");
+					EnumChatFormatting.PINK + "☠ Catacombs Level: " + catacombs + "\n" +
+						 EnumChatFormatting.PINK + "☬ Selected Class: " + selectedClass + "\n\n" +
+						 EnumChatFormatting.GOLD + "☣ Archer Level: " + archer + "\n" +
+						 EnumChatFormatting.RED + "⚔ Berserk Level: " + berserk + "\n" +
+						 EnumChatFormatting.GREEN + "❤ Healer Level: " + healer + "\n" +
+						 EnumChatFormatting.AQUA + "✎ Mage Level: " + mage + "\n" +
+						 EnumChatFormatting.GRAY + "❈ Tank Level: " + tank + "\n\n" +
+						 EnumChatFormatting.GREEN + "Total Secrets Found: " + EnumChatFormatting.YELLOW + secrets + "\n");
 
 			StringBuilder completionsHoverString = new StringBuilder();
 
 			for (int i = 0; i <= highestFloor; i++) {
 				completionsHoverString
-						.append(EnumChatFormatting.GOLD)
+						.append(EnumChatFormatting.GRAY)
 						.append(i == 0 ? "Entrance: " : "Floor " + i + ": ")
 						.append(EnumChatFormatting.RESET)
 						.append(completionObj.get(String.valueOf(i)).getAsInt())
 						.append(i < highestFloor ? "\n": "");
 			}
 
-			ChatComponentText completions = new ChatComponentText(EnumChatFormatting.GOLD + " Highest Floor Completed: " + highestFloor);
+			ChatComponentText completions = new ChatComponentText(EnumChatFormatting.AQUA + "Floor Completions " + "\n");
+
+
 
 			completions.setChatStyle(completions.getChatStyle().setChatHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ChatComponentText(completionsHoverString.toString()))));
 
