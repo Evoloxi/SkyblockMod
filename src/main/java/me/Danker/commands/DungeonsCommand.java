@@ -114,8 +114,8 @@ public class DungeonsCommand extends CommandBase {
 			String delimiter = EnumChatFormatting.RED + "" + EnumChatFormatting.BOLD + "-------------------";
 
 			ChatComponentText classLevels = new ChatComponentText(
-					EnumChatFormatting.PINK + "☠ Catacombs Level: " + catacombs + "\n" +
-						 EnumChatFormatting.PINK + "☬ Selected Class: " + selectedClass + "\n\n" +
+					EnumChatFormatting.LIGHT_PURPLE + "☠ Catacombs Level: " + catacombs + "\n" +
+						 EnumChatFormatting.LIGHT_PURPLE + "☬ Selected Class: " + selectedClass + "\n\n" +
 						 EnumChatFormatting.GOLD + "☣ Archer Level: " + archer + "\n" +
 						 EnumChatFormatting.RED + "⚔ Berserk Level: " + berserk + "\n" +
 						 EnumChatFormatting.GREEN + "❤ Healer Level: " + healer + "\n" +
@@ -127,14 +127,14 @@ public class DungeonsCommand extends CommandBase {
 
 			for (int i = 0; i <= highestFloor; i++) {
 				completionsHoverString
-						.append(EnumChatFormatting.GRAY)
+						.append(EnumChatFormatting.AQUA)
 						.append(i == 0 ? "Entrance: " : "Floor " + i + ": ")
 						.append(EnumChatFormatting.RESET)
 						.append(completionObj.get(String.valueOf(i)).getAsInt())
 						.append(i < highestFloor ? "\n": "");
 			}
 
-			ChatComponentText completions = new ChatComponentText(EnumChatFormatting.AQUA + "Floor Completions " + "\n");
+			ChatComponentText completions = new ChatComponentText(EnumChatFormatting.AQUA + "Floor Completions " + EnumChatFormatting.GRAY + "(Hover)" + "\n");
 
 
 
